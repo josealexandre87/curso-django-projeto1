@@ -1,15 +1,24 @@
-{% include 'recipes/partials/head.html' %}
+{% include 'recipes/partials/head.html' %} <!-- o Django importa do documento head.html os METADADOS e o CSS da pagina-->
 
 <body>
-    {% include 'recipes/partials/header.html' %}
-    <div class="search-container">
-        <div class="container">
-            <form action="" class="search-form">
-                <input type="search" class="search-input" name="search">
-                <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
-            </form>
+    {% include 'recipes/partials/header.html' %} <!-- o Django importa do documento header.html o CABEÇALHO da pagina-->
+    {% include 'recipes/partials/search-container.html' %} <!-- o Django importa do documento header.html o CABEÇALHO da pagina-->
+
+    <main class="main-content-containder">
+        <div class="main-content main-content-list container">
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
+            <div class="temp"></div>
         </div>
-    </div>
+    </main>
 </body>
 
 </html>
