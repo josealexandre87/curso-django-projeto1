@@ -1,0 +1,23 @@
+<!-- A pasta BASE_TEMPALES possui um arquivo base.html, que é GLOBAL, o qual será a base para todas as páginas criadas
+em recipes/templates/recipes/pages/ e também contém todos os CONTEÚDOS includes("importados") das 
+páginas parciais que estão em recipes/templates/recipes/partials/
+
+(Funciona como se fossem de COMPONENTES do React.js, e vai formando a página por pedaços.)
+
+Acho mais maneiro assim. Depois vou reformular como se fossem realmente COMPONENTES! pra usar Atomic Designer.-->
+
+{% include 'recipes/partials/head.html' %} <!-- o Django "importa" do documento head.html os METADADOS e o CSS da pagina-->
+
+<body>
+    {% include 'recipes/partials/header.html' %} <!-- o Django "importa" do documento header.html o CABEÇALHO da pagina-->
+    {% include 'recipes/partials/search-container.html' %}<!-- o Django "importa" do documento search-container.html o campo de BUSCA da pagina-->
+
+    <main class="main-content-containder">
+        {% block content %}{% endblock content %} <!--aqui serão inseridos os conteúdos que mudarão nas páginas "FILHAS"-->
+    </main>
+
+    {% include 'recipes/partials/footer.html' %}<!-- o Django "importa" do documento footer.html o RODAPÉ da pagina-->
+    
+</body>
+
+</html> <!-- IMPORTANTE! tem sempre terminar com a tag de fechamento do /html-->

@@ -1,0 +1,11 @@
+
+{% extends 'global/base.html' %} <!--Está "importando" o template base lá do arquivo global/base.html-->
+
+<!--Este arquivo (recipe-views.html) está extendendo a página global/base.html e entre 
+os BLOCOS {% block content %}!AQUI!{% endblock content %}, da página "PAI"(global/base.html),
+vai apresentar TODO o conteúdo da pagina "PAI" e acrescentar ao BLOCO o conteúdo presente na <div> abaixo. -->
+{% block content %}
+    <div class="main-content main-content-detail container">
+        {% include 'recipes/partials/recipe.html' %}
+    </div>
+{% endblock content %}
