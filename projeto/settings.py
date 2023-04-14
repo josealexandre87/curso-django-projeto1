@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 # TODAS AS VEZES QUE EU CRIAR UM APP NO MEU PROJETO, TENHO QUE INFORMAR AQUI!!!!!!!!
-    'recipes', 
+    'recipes',
 ]
 
 MIDDLEWARE = [
@@ -119,7 +119,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'static/' # Para importar os arquivos estáticos no html vamos inserir {% load static %} no topo do arquivo html, 
+# antes de <!DOCTYPE html>, e depois chamamos um link no corpo do documento para que seja importado arquivo estático usando 
+# <link rel="stylesheet" href="{% static 'recipes/css/styles.css' %}">, onde static já corresponde ao diretório base e 
+# passamos o restante do PATH sem começar por static.
+
+# STATICFILES_DIRS vai adicionar uma NOVA pasta estática que foi criada em outro lugar do projeto e será utilizada pelo Django 
+# quando executar/importar o outro arquivo estático do projeto.
+STATICFILES_DIRS = [
+    BASE_DIR / 'base_static', # nome da pasta! Podem ser passadas várias pastas de arquivos estáticos usando sempre BASE_DIR /
+
+]
+
+# STATIC_ROOT cria o caminho para a pasta nomeada em uma strig ('nome_da_pasta') onde serão enviados todos os arquivos estáticos 
+# do projeto quando executar o comando "python manage.py collectstatic". Lembrar de usar namespaces para não ocorrer colisão
+# de arquivos quando o Django coletar as pastas e os arquivos estáticos, pois ele não mantem arquivos com mesmo nome!
+STATIC_ROOT = BASE_DIR / 'static' 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

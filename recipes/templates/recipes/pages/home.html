@@ -1,18 +1,18 @@
-{% include 'recipes/partials/head.html' %}
-<!-- o Django importa do documento head.html os METADADOS e o CSS da pagina-->
+{% extends 'global/base.html' %} <!--Está "importando" o template base lá do arquivo global/base.html-->
 
-<body>
-    {% include 'recipes/partials/header.html' %} <!-- o Django importa do documento header.html o CABEÇALHO da pagina-->
-    {% include 'recipes/partials/search-container.html' %}
-    <!-- o Django importa do documento header.html o CABEÇALHO da pagina-->
-
-    <main class="main-content-containder">
-        <div class="main-content main-content-list container">
-            {% include 'recipes/partials/recipe.html' %}
-        </div>
-    </main>
-
-    {% include 'recipes/partials/footer.html' %}
-</body>
-
-</html>
+<!--Este arquivo (home.html) está extendendo a página global/base.html e entre 
+os BLOCOS {% block content %}!AQUI!{% endblock content %}, da página "PAI"(global/base.html),
+vai apresentar TODO o conteúdo da pagina "PAI" e acrescentar ao BLOCO o conteúdo presente na <div> abaixo. -->
+{% block content %} 
+    <div class="main-content main-content-list container">       
+        {% include 'recipes/partials/recipe.html' %}
+        {% include 'recipes/partials/recipe.html' %}
+        {% include 'recipes/partials/recipe.html' %}
+        {% include 'recipes/partials/recipe.html' %}
+        {% include 'recipes/partials/recipe.html' %}
+        {% include 'recipes/partials/recipe.html' %}
+        {% include 'recipes/partials/recipe.html' %}
+        {% include 'recipes/partials/recipe.html' %}
+        {% include 'recipes/partials/recipe.html' %}
+    </div>
+{% endblock content %}
