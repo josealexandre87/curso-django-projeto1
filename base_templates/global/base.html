@@ -5,8 +5,13 @@ páginas parciais que estão em recipes/templates/recipes/partials/
 (Funciona como se fossem de COMPONENTES do React.js, e vai formando a página por pedaços.)
 
 Acho mais maneiro assim. Depois vou reformular como se fossem realmente COMPONENTES! pra usar Atomic Designer.-->
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-{% include 'recipes/partials/head.html' %} <!-- o Django "importa" do documento head.html os METADADOS e o CSS da pagina-->
+<head>
+    {% include 'recipes/partials/head.html' %}<!-- o Django "importa" do documento head.html os METADADOS e o CSS da pagina-->
+    <title>{% block title %}{% endblock title %}</title>
+</head>
 
 <body>
     {% include 'recipes/partials/header.html' %} <!-- o Django "importa" do documento header.html o CABEÇALHO da pagina-->
