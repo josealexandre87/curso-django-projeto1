@@ -165,7 +165,11 @@ h6 {
 }
 
 .recipe-list-item {
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; */
     max-width: 64rem;
+    height: fit-content;
 }
 
 .recipe-list-item:hover {
