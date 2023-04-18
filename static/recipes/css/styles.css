@@ -168,8 +168,8 @@ h6 {
     /* display: flex;
     flex-wrap: wrap;
     justify-content: space-between; */
-    max-width: 64rem;
-    height: fit-content;
+    width: 64rem;
+    height:fit-content;
 }
 
 .recipe-list-item:hover {
