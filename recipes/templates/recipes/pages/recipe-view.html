@@ -1,5 +1,5 @@
-
-{% extends 'global/base.html' %} <!--Está "importando" o template base lá do arquivo global/base.html-->
+{% extends 'global/base.html' %}
+<!--Está "importando" o template base lá do arquivo global/base.html-->
 
 {% block title %}RECIPE-VIEW | {% endblock title %}
 
@@ -7,7 +7,7 @@
 os BLOCOS, da página "PAI"(global/base.html),
 vai apresentar TODO o conteúdo da pagina "PAI" e acrescentar ao BLOCO o conteúdo presente na <div> abaixo. -->
 {% block content %}
-    <div class="main-content main-content-detail container">
-        {% include 'recipes/partials/recipe.html' %}
-    </div>
+  <div class="main-content main-content-detail container">
+    {% include 'recipes/partials/recipe.html' %}
+  </div>
 {% endblock content %}

@@ -7,22 +7,23 @@ páginas parciais que estão em recipes/templates/recipes/partials/
 Acho mais maneiro assim. Depois vou reformular como se fossem realmente COMPONENTES! pra usar Atomic Designer.-->
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    {% include 'recipes/partials/head.html' %}<!-- o Django "importa" do documento head.html os METADADOS e o CSS da pagina-->
+  <head>
+    {% include 'recipes/partials/head.html' %}
+    <!-- o Django "importa" do documento head.html os METADADOS e o CSS da pagina-->
     <title>{% block title %}{% endblock title %}</title>
-</head>
+  </head>
 
-<body>
-    {% include 'recipes/partials/header.html' %} <!-- o Django "importa" do documento header.html o CABEÇALHO da pagina-->
+  <body>
+    {% include 'recipes/partials/header.html' %}
+    <!-- o Django "importa" do documento header.html o CABEÇALHO da pagina-->
     {% include 'recipes/partials/search-container.html' %}<!-- o Django "importa" do documento search-container.html o campo de BUSCA da pagina-->
 
     <main class="main-content-containder">
-        {% block content %}{% endblock content %} <!--aqui serão inseridos os conteúdos que mudarão nas páginas "FILHAS"-->
+      {% block content %}{% endblock content %}
+      <!--aqui serão inseridos os conteúdos que mudarão nas páginas "FILHAS"-->
     </main>
 
     {% include 'recipes/partials/footer.html' %}<!-- o Django "importa" do documento footer.html o RODAPÉ da pagina-->
-    
-</body>
-
-</html> <!-- IMPORTANTE! tem sempre terminar com a tag de fechamento do /html-->
+  </body>
+</html>
+<!-- IMPORTANTE! tem sempre terminar com a tag de fechamento do /html-->

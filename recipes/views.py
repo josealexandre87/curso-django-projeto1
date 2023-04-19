@@ -11,4 +11,7 @@ def home(request):
 def recipe(request, id): # COPIADA E MUDADA O NOME PARA 'recipe', deve ser inserida em urlpatterns =[], no arquivo recipes/urls.py
     return render(request, 'recipes/pages/recipe-view.html', context={  
         'recipe': make_recipe(), # pode criar variáveis que serão usadas no corpo do hmtl chamando {{name}} e renderizados na página
+        'is_detail_page': True, # foi criada a variável is_detail_page = True para que seja usada como condicional no arquivo 
+                                # partials/recipe.html sendo renderizada ou não, dependendo do seu estado atual. E foram criados dois blocos
+                                # {%if%} e {%endif%} para controle da div <footer>.
     })
