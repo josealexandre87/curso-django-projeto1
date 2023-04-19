@@ -45,7 +45,9 @@
       </div>
     </div>
   </div>
-
+  <!-- foi inserido uma condição para que esse elemento <footer> apareça na pagina recipe-view
+  . Em views.py, foi inserido uma variável de estado da página 'is_detail_page': True em def recipe(request, id) -->
+  {% if is_detail_page is not True %} 
   <footer class="recipe-footer">
     <!-- href="/recipes/3/ é o PATH que vai renderizar quando clicar no botão "ver mais..."-->
     <a
@@ -56,4 +58,11 @@
       <span>ver mais...</span>
     </a>
   </footer>
+  {% endif %} <!-- não esquecer de sempre fechar os blocos do Django -->
+
+  {% if is_detail_page is True %}
+    <div class="preparation-steps"> 
+      {{ recipe.preparation_steps|linebreaksbr }} <!-- | (pipe) é uma forma de usar o python no Django, ver documentação-->
+    </div>
+  {% endif %}
 </div>
