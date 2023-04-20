@@ -1,9 +1,13 @@
 <div class="recipe recipe-list-item">
   <div class="recipe-cover">
-    <img src="{{ recipe.cover.url }}" alt="imagem temporária" />
+    <a href="{% url 'recipes:recipe' recipe.id %}">
+      <img src="{{ recipe.cover.url }}" alt="imagem temporária" />
+    </a>
   </div>
   <div class="recipe-title-container">
-    <h2 class="recipe-title">{{ recipe.title }}</h2>
+    <h2 class="recipe-title">
+      <a href="{% url 'recipes:recipe' recipe.id %}"> {{ recipe.title }} </a>
+    </h2>
   </div>
 
   <div class="recipe-author">
@@ -47,22 +51,24 @@
   </div>
   <!-- foi inserido uma condição para que esse elemento <footer> apareça na pagina recipe-view
   . Em views.py, foi inserido uma variável de estado da página 'is_detail_page': True em def recipe(request, id) -->
-  {% if is_detail_page is not True %} 
+  {% if is_detail_page is not True %}
   <footer class="recipe-footer">
     <!-- href="/recipes/3/ é o PATH que vai renderizar quando clicar no botão "ver mais..."-->
     <a
       class="recipe-read-more button button-dark button-full-width"
-      href="/recipes/3/"
+      href="{% url 'recipes:recipe' recipe.id %}"
     >
       <i class="fas fa-eye"></i>
       <span>ver mais...</span>
     </a>
   </footer>
-  {% endif %} <!-- não esquecer de sempre fechar os blocos do Django -->
+  {% endif %}
+  <!-- não esquecer de sempre fechar os blocos do Django -->
 
   {% if is_detail_page is True %}
-    <div class="preparation-steps"> 
-      {{ recipe.preparation_steps|linebreaksbr }} <!-- | (pipe) é uma forma de usar o python no Django, ver documentação-->
-    </div>
+  <div class="preparation-steps">
+    {{ recipe.preparation_steps|linebreaksbr }}
+    <!-- | (pipe) é uma forma de usar o python no Django, ver documentação-->
+  </div>
   {% endif %}
 </div>
