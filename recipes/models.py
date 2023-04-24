@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     name = models.CharField(max_length=65)
 
+    def __str__(self): # faz com que o admin.py mude o nome da class na página do admin e apareça o nome do própio modelo criado.
+        return self.name
+    
 class Recipe(models.Model):
     title = models.CharField(max_length=65)
     description = models.CharField(max_length=165)
