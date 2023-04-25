@@ -134,7 +134,10 @@ STATICFILES_DIRS = [
 # STATIC_ROOT cria o caminho para a pasta nomeada em uma strig ('nome_da_pasta') onde serão enviados todos os arquivos estáticos 
 # do projeto quando executar o comando "python manage.py collectstatic". Lembrar de usar namespaces para não ocorrer colisão
 # de arquivos quando o Django coletar as pastas e os arquivos estáticos, pois ele não mantem arquivos com mesmo nome!
-STATIC_ROOT = BASE_DIR / 'static' 
+STATIC_ROOT = BASE_DIR / 'static'
+
+MEDIA_URL = '/media/' #para inserir arquivos de mídia que virão do CRUD de models.py, da url.../admin/
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
