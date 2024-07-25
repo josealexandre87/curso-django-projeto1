@@ -25,13 +25,13 @@ class Recipe(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=False)
-    cover = models.ImageField(upload_to='recipes/covers/%Y/%m/%d/', blank=True, default="")
+    cover = models.ImageField(upload_to='recipes/covers/%Y/%m/%d/', blank=True, default="") # blank e default precisam de um {% if recipe.cover %}{% endif %} lá em partial recipe.html. Eles vão abrir uma caixinha seletora do Django adm e um botão Clear para remover a imagem da receita caso precise. Se não fizer o {% if recipe.cover %}{% endif %}, vai quebrar o layte da página!
     category = models.ForeignKey(
-        Category, on_delete=models.SET_NULL, null=True
+        Category, on_delete=models.SET_NULL, null=True, blank=True, default=None,
         )
     author = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True
         )
     
     def __str__(self): # é um metodo que faz com que o admin.py mude o nome da class na página do admin e apareça o nome do própio modelo criado.
-        return self.title # * title VAI SER O NOME DO OBJETO lá no Admin
+        return self.title # * title VAI SER O NOME DO OBJETO lá no Admin !!!!!!!!!!!!

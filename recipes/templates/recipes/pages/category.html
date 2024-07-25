@@ -1,0 +1,12 @@
+{% extends 'global/base.html' %} <!--Está "importando" o template base lá do arquivo global/base.html-->
+{% block title %} CATEGORY | {% endblock title %}
+<!--Este arquivo (home.html) está extendendo a página global/base.html e entre 
+os BLOCOS, da página "PAI"(global/base.html),
+vai apresentar TODO o conteúdo da pagina "PAI" e acrescentar ao BLOCO o conteúdo presente na <div> abaixo. -->
+{% block content %} 
+    <div class="main-content main-content-list container">      
+        {% for recipe in recipes %} 
+            {% include 'recipes/partials/recipe.html' %}
+        {% endfor %}
+    </div>
+{% endblock content %}
